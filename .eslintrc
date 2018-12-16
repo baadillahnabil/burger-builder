@@ -1,0 +1,20 @@
+{
+  "root": true,
+  "env": {
+    "node": true
+  },
+  "extends": "react-app",
+  "rules": {
+    "generator-star-spacing": "off",
+    "semi": ["error", "never"],
+    "comma-dangle": ["error", "never"],
+    "quotes": ["error", "single"],
+    "indent": ["warn", 2]
+  },
+  "parserOptions": {
+    "parser": "typescript-eslint-parser",
+    "ecmaFeatures": {
+      "jsx": false
+    }
+  }
+}
