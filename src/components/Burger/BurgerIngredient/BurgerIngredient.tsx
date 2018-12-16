@@ -1,13 +1,11 @@
-import React, { FunctionComponent, MouseEvent, ReactElement } from 'react'
-import Classes from './BurgerIngredient.module.sass'
-
+import React, { FunctionComponent, ReactElement, memo } from 'react'
 import { withDefaultProps } from '../../../hoc/withDefaultProps'
+import Classes from './BurgerIngredient.module.sass'
 
 const defaultProps = {}
 type DefaultProps = typeof defaultProps
 type Props = {
   type: 'bread-bottom' | 'bread-top' | 'meat' | 'cheese' | 'salad' | 'bacon'
-  onClick(e: MouseEvent<HTMLElement>): void
 } & DefaultProps
 
 const burgerIngredient: FunctionComponent<Props> = props => {
@@ -20,8 +18,8 @@ const burgerIngredient: FunctionComponent<Props> = props => {
     case 'bread-top':
       ingredient = (
         <div className={Classes.BreadTop}>
-          <div className={Classes.Seed1} />
-          <div className={Classes.Seed2} />
+          <div className={Classes.Seeds1} />
+          <div className={Classes.Seeds2} />
         </div>
       )
       break
@@ -46,4 +44,4 @@ const burgerIngredient: FunctionComponent<Props> = props => {
   return ingredient
 }
 
-export default withDefaultProps(defaultProps, burgerIngredient)
+export default withDefaultProps(defaultProps, memo(burgerIngredient))
