@@ -1,15 +1,23 @@
 import React, { Component } from 'react'
 import Burger from '../../components/Burger/Burger'
 
-class BurgerBuilder extends Component {
-  constructor(props: any) {
-    super(props)
+const initialState = {
+  ingredients: {
+    salad: 2,
+    bacon: 3,
+    meat: 2,
+    cheese: 1
   }
+}
+type State = Readonly<typeof initialState>
+
+class BurgerBuilder extends Component<object, State> {
+  readonly state: State = initialState
 
   render() {
     return (
       <>
-        <Burger />
+        <Burger ingredients={this.state.ingredients} />
         <div>Build Control</div>
       </>
     )
