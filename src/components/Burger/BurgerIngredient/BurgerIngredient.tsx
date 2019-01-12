@@ -5,7 +5,7 @@ import Classes from './BurgerIngredient.module.sass'
 const defaultProps = {}
 type DefaultProps = typeof defaultProps
 type Props = {
-  type: 'bread-bottom' | 'bread-top' | 'meat' | 'cheese' | 'salad' | 'bacon'
+  type: String | 'bread-bottom' | 'bread-top' | 'meat' | 'cheese' | 'salad' | 'bacon'
 } & DefaultProps
 
 const burgerIngredient: FunctionComponent<Props> = props => {
