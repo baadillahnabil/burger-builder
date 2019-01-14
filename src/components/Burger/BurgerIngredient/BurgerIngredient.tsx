@@ -1,5 +1,5 @@
 import React, { FunctionComponent, ReactElement, memo } from 'react'
-import { withDefaultProps } from '../../../hoc/withDefaultProps'
+import { withDefaultProps } from '@src/hoc/withDefaultProps'
 import Classes from './BurgerIngredient.module.sass'
 
 // Props
