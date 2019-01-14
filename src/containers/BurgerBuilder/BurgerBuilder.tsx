@@ -1,23 +1,36 @@
 import React, { Component } from 'react'
+
+// Components
 import Burger from '../../components/Burger/Burger'
 
-const initialState = {
+// State
+export interface IBurgerBuilderState {
+  readonly ingredients: {
+    readonly salad: number
+    readonly meat: number
+    readonly cheese: number
+    readonly bacon: number
+  }
+  readonly color?: String
+}
+const initialState: IBurgerBuilderState = {
   ingredients: {
-    salad: 2,
-    bacon: 3,
-    meat: 2,
-    cheese: 1
+    salad: 1,
+    meat: 1,
+    cheese: 1,
+    bacon: 1
   }
 }
-type State = Readonly<typeof initialState>
 
-class BurgerBuilder extends Component<object, State> {
-  readonly state: State = initialState
+class BurgerBuilder extends Component<object, IBurgerBuilderState> {
+  readonly state: IBurgerBuilderState = initialState
 
   render() {
+    const { ingredients } = this.state
+
     return (
       <>
-        <Burger ingredients={this.state.ingredients} />
+        <Burger ingredients={ingredients} />
         <div>Build Control</div>
       </>
     )
