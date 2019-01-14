@@ -2,16 +2,20 @@ import React, { FunctionComponent, ReactElement, memo } from 'react'
 import { withDefaultProps } from '../../../hoc/withDefaultProps'
 import Classes from './BurgerIngredient.module.sass'
 
+// Props
+export interface IBurgerIngredientProps {
+  type: 'bread-bottom' | 'bread-top' | 'meat' | 'cheese' | 'bacon' | 'salad'
+}
 const defaultProps = {}
 type DefaultProps = typeof defaultProps
-type Props = {
-  type: String | 'bread-bottom' | 'bread-top' | 'meat' | 'cheese' | 'salad' | 'bacon'
-} & DefaultProps
+type Props = IBurgerIngredientProps & DefaultProps
 
 const burgerIngredient: FunctionComponent<Props> = props => {
-  let ingredient: ReactElement<any>
+  const { type } = props
 
-  switch (props.type) {
+  let ingredient: ReactElement<IBurgerIngredientProps>
+
+  switch (type) {
     case 'bread-bottom':
       ingredient = <div className={Classes.BreadBottom} />
       break
