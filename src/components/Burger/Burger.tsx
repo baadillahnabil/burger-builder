@@ -1,5 +1,5 @@
 import React, { FunctionComponent, memo } from 'react'
-import { withDefaultProps } from '../../hoc/withDefaultProps'
+import { withDefaultProps } from '@src/hoc/withDefaultProps'
 import Classes from './Burger.module.sass'
 
 // Components
@@ -7,7 +7,7 @@ import BurgerIngredient from './BurgerIngredient/BurgerIngredient'
 
 // Interfaces
 import { IBurgerIngredientProps } from './BurgerIngredient/BurgerIngredient'
-import { IBurgerBuilderState } from '../../containers/BurgerBuilder/BurgerBuilder'
+import { IBurgerBuilderState } from '@src/containers/BurgerBuilder/BurgerBuilder'
 
 // Props
 export interface BurgerProps {
@@ -22,7 +22,9 @@ const burger: FunctionComponent<Props> = props => {
 
   const arrayIngredients = Object.keys(ingredients).map(ingredientKey => {
     return [...Array(ingredients[ingredientKey])].map((_, index) => {
-      return <BurgerIngredient key={ingredientKey + index} type={ingredientKey as IBurgerIngredientProps['type']} />
+      return (
+        <BurgerIngredient key={`${ingredientKey}_${index}`} type={ingredientKey as IBurgerIngredientProps['type']} />
+      )
     })
   })
 

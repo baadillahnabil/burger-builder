@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
 
 // Components
-import Burger from '../../components/Burger/Burger'
+import Burger from '@src/components/Burger/Burger'
 
 // State
 export interface IBurgerBuilderState {
   readonly ingredients: {
+    [key: string]: number
     readonly salad: number
     readonly meat: number
     readonly cheese: number
