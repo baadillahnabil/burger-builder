@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 
 // Components
 import Burger from '@src/components/Burger/Burger'
+import BuildControls from '@src/components/Burger/BuildControls/BuildControls'
 
 // State
 export interface IBurgerBuilderState {
@@ -16,10 +17,10 @@ export interface IBurgerBuilderState {
 }
 const initialState: IBurgerBuilderState = {
   ingredients: {
-    salad: 1,
-    meat: 1,
-    cheese: 1,
-    bacon: 1
+    salad: 0,
+    meat: 0,
+    cheese: 0,
+    bacon: 0
   }
 }
 
@@ -32,7 +33,7 @@ class BurgerBuilder extends Component<object, IBurgerBuilderState> {
     return (
       <>
         <Burger ingredients={ingredients} />
-        <div>Build Control</div>
+        <BuildControls />
       </>
     )
   }
